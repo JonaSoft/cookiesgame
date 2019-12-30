@@ -15,5 +15,5 @@ app.get('/*', (req, res) => {
 
 
 app.listen(process.env.PORT, async() => {
-    console.log('Escuchando puerto: ', process.env.PORT);
+    console.log('Escuchando en el puerto: ', process.env.PORT);
 });

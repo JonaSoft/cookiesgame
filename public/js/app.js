@@ -1,19 +1,36 @@
 var $j = jQuery.noConflict();
 document.observe("dom:loaded", function() {
+
         var valorActual = 0;
         valor = 0;
         contador = 0;
         columnasTablero = $j('.panel-tablero').children()
         matriz = [];
         matriz.length = 0;
+
+        function audiofondoon(e) {
+            var reproduce = new Audio();
+            reproduce.src = e;
+            reproduce.play();
+        };
+
+        /*function audiomueveon(e) {
+            var reproduce = new Audio();
+            reproduce.src = e;
+            reproduce.play();
+        }*/
+
+        //setInterval(audiofondoon("../audio/vikuserro.mp3"), 32000);
         //**********FUNCION DE BOTON DE INICIO**********
         $j('.btn-reinicio').click(function() {
+            audiofondoon("../audio/vikuserro2.mp3");
             if ($j('.btn-reinicio').text() === 'Reiniciar') {
                 location.reload();
             } else {
                 ($j('.btn-reinicio').text('Reiniciar'));
                 ($j('#score-text').text('0'));
                 inicio(); //ACTIVA CRONOMETRO DEL TIMER
+                //setInterval(audiofondoon("../audio/vikuserro.mp3"), 32000);
                 iniciando = setInterval(buscaImagenesIguales, 2000); //BUSCA IMAGENES IGUALES CADA 1.3 SEGUNDOS
                 cuenta(); //CONTADOR DE MOVIMIENTOS
             }
@@ -286,13 +303,21 @@ function desplazaDulce() {
 }
 //*****************CUENTA MOVIMIENTO POR DULCE*****************
 function cuenta() {
+    function audiomueveon(e) {
+        var reproduce = new Audio();
+        reproduce.src = e;
+        reproduce.play();
+    };
     $j('.panel-tablero div').mouseup(function() {
+
         clearInterval(iniciando);
         contador = contador + 1
         $j('#movimientos-text').html(parseInt(contador));
+
         iniciando = setInterval(buscaImagenesIguales, 2000);
     });
     $j('.panel-tablero div').mousedown(function() {
+        audiomueveon("../audio/inspectorj.wav");
         clearInterval(iniciando);
         contador = contador + 1
         $j('#movimientos-text').html(parseInt(contador));

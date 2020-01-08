@@ -1,15 +1,24 @@
 /*jshint esversion: 8 */
 
-
-let segundos = 59;
-let minutos = 0;
+/*function audiomueveon(e) {
+    var reproduce = new Audio();
+    reproduce.src = e;
+    reproduce.play();
+}*/
+let segundos = 45;
+let minutos = 1;
 
 function inicio() {
+
+    //setInterval(audiofondoon("../audio/vikuserro.mp3"), 500);
     tiempo = setInterval(cronometro, 500);
+
+
 }
 
 function cronometro() {
-    $j('#timer').text('0' + minutos + ':' + segundos)
+    //setInterval(audiofondoon("../audio/vikuserro.mp3"), 500);
+    $j('#timer').text('0' + minutos + ':' + segundos);
     if (segundos < 10) {
         //***************SEGUNDOS MENORES QUE 10 ACOMPAÑADOS DEL 0 POR DELANTE**********
         $j('#timer').text('0' + minutos + ':0' + segundos)
